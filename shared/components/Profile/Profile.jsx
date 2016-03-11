@@ -1,27 +1,25 @@
 import React, { PropTypes } from 'react';
 
 function ProfileView(props) {
-  let personToRender = props.person
+  let person = props.person
   return (
-
-    <h2>{personToRender.gitName}</h2>
-
-
+    <div className="profileView">
+      <h2>{person.fullName}</h2>
+      <h3>{person.gitName}</h3>
+      <h4>Last Week Commits: {person.lastWeekCommits}</h4>
+      <h4>Last Week Pull Requests: {person.lastWeekPulls}</h4>
+      <h4>Total Commits: {person.totalCommits}</h4>
+      <img id="profilePic" src={person.picture.src} />
+    </div>
   )
 }
 
-
-// PostListItem.propTypes = {
-//   post: PropTypes.shape({
-//     name: PropTypes.string.isRequired,
-//     title: PropTypes.string.isRequired,
-//     content: PropTypes.string.isRequired,
-//     slug: PropTypes.string.isRequired,
-//     cuid: PropTypes.string.isRequired,
-//   }).isRequired,
-
-//   onClick: PropTypes.func.isRequired,
-//   onDelete: PropTypes.func.isRequired,
-// };
+// currentStreak:"10 days"
+// fullName:"Patrick"
+// gitName:"rekad"
+// lastWeekCommits:"69"
+// lastWeekPulls:"13"
+// longestStreak:"10 days"
+// totalCommits:"194 total"
 
 export default ProfileView;

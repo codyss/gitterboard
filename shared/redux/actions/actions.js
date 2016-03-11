@@ -124,11 +124,16 @@ export function addGitStats(obj) {
   }
 }
 
-//Object {x: "Jeremy", y: 73}
+
 export function showPerson(obj) {
   return {
     type: ActionTypes.SHOW_PERSON,
     person: obj.x
   }
 }
+
+
+
+
+
 

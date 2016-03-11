@@ -27,36 +27,26 @@ class LeaderboardContainer extends Component {
     return (
       <div className="LeaderboardConatiner">
         <h2 id="leadHeader"> 1601 had {this.props.weeklyTotals.totalWeekCommits} contributions with {this.props.weeklyTotals.totalWeekPulls} Pull Requests </h2>
-        <WeeklyLeaderGraph gitStats={this.props.gitStats} />
-        <ProfileContainer personToShow={this.props.personToShow} gitStats={this.props.gitStats}/>
+         <div className="row">
+          <div className="col-md-8">
+            <WeeklyLeaderGraph gitStats={this.props.gitStats} />
+          </div>
+          <div className="col-md-4">
+            <ProfileContainer />
+          </div>
+        </div>
       </div>
     )
   }
 }
 
-//<WeeklyLeaderGraph data={this.props.gitStats} />
-// PostListView.propTypes = {
-//   posts: PropTypes.arrayOf(PropTypes.shape({
-//     name: PropTypes.string.isRequired,
-//     title: PropTypes.string.isRequired,
-//     content: PropTypes.string.isRequired,
-//     slug: PropTypes.string.isRequired,
-//     cuid: PropTypes.string.isRequired,
-//   })).isRequired,
-//   dispatch: PropTypes.func.isRequired,
-// };
+
 
 function mapStateToProps(store) {
   return {
-    posts: store.posts,
     gitStats: store.gitStats,
     weeklyTotals: store.weeklyTotals
   };
 }
 
 export default connect(mapStateToProps)(LeaderboardContainer);
-
-
-// export default LeaderboardContainer
-
-// export default connect()(LeaderboardContainer);

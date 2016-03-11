@@ -27,7 +27,7 @@ class WeeklyLeaderGraph extends Component {
     })
     return (
        <div className="mainChart">
-        <BarChart height={550} width={900} colorBars data={gitData} axes clickHandler={this.handleClick} />
+          <BarChart height={550} width={900} barWidth={5} colorBars data={gitData} axes clickHandler={this.handleClick} />
        </div>
      )
   }

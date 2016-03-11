@@ -41,6 +41,19 @@ body {
   text-align: center;
 }
 
+.profileView {
+  display: inline-block;
+  border: 1px solid black;
+  width: 300px;
+  margin-right: auto;
+  margin-right: auto;
+}
+
+#profilePic {
+  height: auto;
+  width: 300px;
+}
+
 
 .mainChart {
   max-width: 980px;

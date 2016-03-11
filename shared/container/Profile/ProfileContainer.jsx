@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
-import Profile from '../../components/Profile/Profile.jsx'
+import ProfileView from '../../components/Profile/Profile.jsx'
 
 
 class ProfileContainer extends Component {
@@ -16,16 +16,7 @@ class ProfileContainer extends Component {
       return <div></div>;
     }
     return (
-      <div>
-      <h2>test</h2>
-      {
-
-        this.props.gitStats.filter((item, key) => {
-            if (item.gitName === this.props.person)
-              return <Profile person={item} key={key} />
-        })
-      }
-      </div>
+      <ProfileView person={this.props.personToShow} />
     )
   }
 }
@@ -33,7 +24,8 @@ class ProfileContainer extends Component {
 
 function mapStateToProps(store) {
   return {
-    personToShow: store.personToShow
+    personToShow: store.personToShow,
+    gitStats: store.gitStats
   };
 }
 

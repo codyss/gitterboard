@@ -46,8 +46,11 @@ const postReducer = (state = initialState, action) => {
       }
 
     case ActionTypes.SHOW_PERSON :
+      let personObj = state.gitStats.filter(person => {
+        if (person.fullName.split(' ')[0] === action.person) return person;
+      })
       return {
-        personToShow: action.person,
+        personToShow: personObj[0],
         gitStats: state.gitStats,
         weeklyTotals: state.weeklyTotals
       }
