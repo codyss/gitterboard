@@ -86,7 +86,7 @@ app.use((req, res) => {
       return res.status(404).end('Not found!');
     }
 
-    const initialState = { gitStats: [], post: {} };
+    const initialState = { gitStats: [], weeklyStats: {}, post: {} };
 
     const store = configureStore(initialState);
 

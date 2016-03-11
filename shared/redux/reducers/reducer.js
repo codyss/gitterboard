@@ -45,6 +45,13 @@ const postReducer = (state = initialState, action) => {
         weeklyTotals: action.weeklyTotals
       }
 
+    case ActionTypes.SHOW_PERSON :
+      return {
+        personToShow: action.person,
+        gitStats: state.gitStats,
+        weeklyTotals: state.weeklyTotals
+      }
+
     default:
       return state;
   }

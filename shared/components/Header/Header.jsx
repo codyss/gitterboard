@@ -7,7 +7,7 @@ function Header(props, context) {
     <div className="header">
       <div className="header-content">
         <h1 className="site-title">
-          <Link to="/" onClick={props.handleLogoClick}>Starter Blog</Link>
+          <Link to="/">1601 GitHub Leaderboard</Link>
         </h1>
         {
           context.router.isActive('/', true)
@@ -21,11 +21,6 @@ function Header(props, context) {
 
 Header.contextTypes = {
   router: React.PropTypes.object,
-};
-
-Header.propTypes = {
-  onClick: PropTypes.func.isRequired,
-  handleLogoClick: PropTypes.func,
 };
 
 export default Header;

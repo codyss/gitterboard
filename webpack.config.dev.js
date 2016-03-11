@@ -32,6 +32,9 @@ module.exports = {
         },
       },
     ],
+    noParse: [
+      /plotly\.js/
+    ]
   },
 
   plugins: [

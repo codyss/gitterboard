@@ -36,6 +36,19 @@ body {
 	color: #9E9E9E;
 }
 
+#leadHeader {
+  margin-top: 5px;
+  text-align: center;
+}
+
+
+.mainChart {
+  max-width: 980px;
+  width: 100%;
+  padding: 15px;
+  margin: 0 auto;
+}
+
 .container {
 	max-width: 980px;
 	width: 100%;
@@ -167,7 +180,7 @@ body {
 	width: 100%;
 	max-width: 980px;
 	margin: auto;
-	padding: 64px 16px;
+	padding: 15px 15px;
 	overflow: auto;
 }
 
@@ -194,7 +207,7 @@ body {
 
 .footer{
 	text-align: center;
-	padding: 56px 0;
+	padding: 10px 0;
 	background-color: #FFF;
 	background-image: url('/img/header-bk.png');
 	background-position: center;
