@@ -86,7 +86,7 @@ app.use((req, res) => {
       return res.status(404).end('Not found!');
     }
 
-    const initialState = { posts: [], post: {} };
+    const initialState = { gitStats: [], post: {} };
 
     const store = configureStore(initialState);
 
@@ -97,8 +97,8 @@ app.use((req, res) => {
             <RouterContext {...renderProps} />
           </Provider>
         );
-        const finalState = store.getState();
 
+        const finalState = store.getState();
         res.status(200).end(renderFullPage(initialView, finalState));
       })
       .catch(() => {

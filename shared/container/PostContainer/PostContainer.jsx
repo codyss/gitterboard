@@ -2,6 +2,7 @@ import React, { PropTypes, Component } from 'react';
 import PostListView from '../PostListView/PostListView';
 import PostCreateView from '../../components/PostCreateView/PostCreateView';
 import Header from '../../components/Header/Header';
+import Leaderboard from '../../components/Leaderboard/Leaderboard';
 import Footer from '../../components/Footer/Footer';
 import { connect } from 'react-redux';
 import * as Actions from '../../redux/actions/actions';
@@ -32,8 +33,8 @@ class PostContainer extends Component {
   }
 
   componentDidMount() {
-    if(this.props.posts.length === 0) {
-      this.props.dispatch(Actions.fetchPosts());
+    if(this.props.gitStats.length === 0) {
+      this.props.dispatch(Actions.fetchGitStats());
     }
   }
 
@@ -41,10 +42,10 @@ class PostContainer extends Component {
     return (
       <div>
         <Header onClick={this.handleClick} />
+        <Leaderboard gitStats={this.props.gitStats}/>
         <div className="container">
           <PostCreateView addPost={this.add}
             showAddPost={this.state.showAddPost}/>
-          <PostListView posts={this.props.posts}/>
         </div>
         <Footer />
       </div>
@@ -52,7 +53,9 @@ class PostContainer extends Component {
   }
 }
 
-PostContainer.need = [() => { return Actions.fetchPosts(); }];
+// <PostListView posts={this.props.posts}/>
+
+PostContainer.need = [() => { return Actions.fetchGitStats(); }];
 PostContainer.contextTypes = {
   router: React.PropTypes.object,
 };
@@ -60,16 +63,20 @@ PostContainer.contextTypes = {
 function mapStateToProps(store) {
   return {
     posts: store.posts,
+    gitStats: store.gitStats
   };
 }
 
-PostContainer.propTypes = {
-  posts: PropTypes.arrayOf(PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    content: PropTypes.string.isRequired,
-  })).isRequired,
-  dispatch: PropTypes.func.isRequired,
-};
+
+
+// PostContainer.propTypes = {
+//   // gitStats: PropTypes.array,
+//   // posts: PropTypes.arrayOf(PropTypes.shape({
+//   //   name: PropTypes.string.isRequired,
+//   //   title: PropTypes.string.isRequired,
+//   //   content: PropTypes.string.isRequired,
+//   // })).isRequired,
+//   // dispatch: PropTypes.func.isRequired,
+// };
 
 export default connect(mapStateToProps)(PostContainer);

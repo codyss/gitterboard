@@ -1,6 +1,6 @@
 import * as ActionTypes from '../constants/constants';
 
-const initialState = { posts: [], selectedPost: null };
+const initialState = { posts: [], gitStats: [], selectedPost: null };
 
 const postReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -39,9 +39,18 @@ const postReducer = (state = initialState, action) => {
         posts: state.posts.filter((post) => post._id !== action.post._id),
       };
 
+    case ActionTypes.ADD_STATS :
+      return {
+        gitStats: action.gitStats,
+        weeklyTotals: action.weeklyTotals
+      }
+
     default:
       return state;
   }
 };
 
 export default postReducer;
+
+
+

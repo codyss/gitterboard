@@ -93,3 +93,34 @@ export function deletePostRequest(post) {
     }).then(() => dispatch(deletePost(post)));
   };
 }
+
+
+function getTotals(data) {
+  let newData = data.slice()
+  return newData.reduce((accum, student) => {
+    if(student.lastWeekCommits) accum.totalWeekCommits += parseInt(student.lastWeekCommits);
+    if(student.lastWeekPulls) accum.totalWeekPulls += parseInt(student.lastWeekPulls)
+    return accum
+  }, {totalWeekCommits: 0, totalWeekPulls: 0})
+}
+
+export function fetchGitStats() {
+  return (dispatch) => {
+    return fetch('https://kimonocrawlsapi123.firebaseio.com/kimono/api/6fxd7h0e/latest.json')
+      .then(res => res.json())
+      .then(res => {
+        let data = res.results.collection1
+        return {gitStats: data, weeklyTotals: getTotals(data)}
+      })
+      .then(obj => dispatch(addGitStats(obj)))
+  }
+}
+
+export function addGitStats(obj) {
+  return {
+    type: ActionTypes.ADD_STATS,
+    gitStats: obj.gitStats,
+    weeklyTotals: obj.weeklyTotals
+  }
+}
+
