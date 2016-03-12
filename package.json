@@ -41,6 +41,7 @@
     "isomorphic-fetch": "^2.2.1",
     "mongoose": "^4.3.7",
     "react": "^0.14.7",
+    "react-bootstrap": "^0.28.3",
     "react-chartist": "^0.10.1",
     "react-d3": "^0.4.0",
     "react-d3-basic": "^1.6.9",

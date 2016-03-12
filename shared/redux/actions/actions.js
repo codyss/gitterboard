@@ -96,12 +96,12 @@ export function deletePostRequest(post) {
 
 
 function getTotals(data) {
-  let newData = data.slice()
+  let newData = data.slice();
   return newData.reduce((accum, student) => {
     if(student.lastWeekCommits) accum.totalWeekCommits += parseInt(student.lastWeekCommits);
-    if(student.lastWeekPulls) accum.totalWeekPulls += parseInt(student.lastWeekPulls)
-    return accum
-  }, {totalWeekCommits: 0, totalWeekPulls: 0})
+    if(student.lastWeekPulls) accum.totalWeekPulls += parseInt(student.lastWeekPulls);
+    return accum;
+  }, {totalWeekCommits: 0, totalWeekPulls: 0});
 }
 
 export function fetchGitStats() {
@@ -109,11 +109,11 @@ export function fetchGitStats() {
     return fetch('https://kimonocrawlsapi123.firebaseio.com/kimono/api/6fxd7h0e/latest.json')
       .then(res => res.json())
       .then(res => {
-        let data = res.results.collection1
-        return {gitStats: data, weeklyTotals: getTotals(data)}
+        let data = res.results.collection1;
+        return {gitStats: data, weeklyTotals: getTotals(data)};
       })
-      .then(obj => dispatch(addGitStats(obj)))
-  }
+      .then(obj => dispatch(addGitStats(obj)));
+  };
 }
 
 export function addGitStats(obj) {
@@ -121,7 +121,7 @@ export function addGitStats(obj) {
     type: ActionTypes.ADD_STATS,
     gitStats: obj.gitStats,
     weeklyTotals: obj.weeklyTotals
-  }
+  };
 }
 
 
@@ -129,11 +129,12 @@ export function showPerson(obj) {
   return {
     type: ActionTypes.SHOW_PERSON,
     person: obj.gitName
-  }
+  };
 }
 
-
-
-
-
-
+export function changeGraph(key) {
+  return {
+    type: ActionTypes.CHANGE_GRAPH,
+    graph: key
+  };
+}

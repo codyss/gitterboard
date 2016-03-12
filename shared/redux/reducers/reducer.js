@@ -43,17 +43,16 @@ const postReducer = (state = initialState, action) => {
       return {
         gitStats: action.gitStats,
         weeklyTotals: action.weeklyTotals
-      }
+      };
 
     case ActionTypes.SHOW_PERSON :
       let personObj = state.gitStats.filter(person => {
         if (person.gitName === action.person) return person;
-      })
-      return {
-        personToShow: personObj[0],
-        gitStats: state.gitStats,
-        weeklyTotals: state.weeklyTotals
-      }
+      });
+      return Object.assign({}, state, {personToShow: personObj[0]});
+
+    case ActionTypes.CHANGE_GRAPH :
+      return Object.assign({}, state, {graph: action.graph});
 
     default:
       return state;
@@ -61,6 +60,3 @@ const postReducer = (state = initialState, action) => {
 };
 
 export default postReducer;
-
-
-

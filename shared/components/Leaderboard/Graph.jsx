@@ -11,27 +11,26 @@ class Graph extends Component {
   }
 
   handleClick(e) {
-    this.props.dispatch(Actions.showPerson(e))
+    this.props.dispatch(Actions.showPerson(e));
   }
 
   render() {
-    let newArr = this.props.gitStats.slice()
+    let newArr = this.props.gitStats.slice();
     let gitDataSorted = newArr.sort((a,b) => {
       return parseInt(b[this.props.sort].replace(/[^\d]+/, ""))-parseInt(a[this.props.sort].replace(/[^\d]+/, ""));
-    })
+    });
     let gitData = gitDataSorted.map(person => {
       return {
         x: person.fullName.split(' ').length > 1 ? person.fullName.split(' ')[0] + ' ' + person.fullName.split(' ')[1][0] + '.' : person.gitName,
         y: parseInt(person[this.props.sort]),
         gitName: person.gitName
-      }
-    })
-    // debugger;
+      };
+    });
     return (
        <div className="mainChart">
           <BarChart height={500} width={parseInt(this.props.width) || 800} barWidth={5} colorBars data={gitData} axes clickHandler={this.handleClick} />
        </div>
-     )
+     );
   }
 }
 
@@ -52,6 +51,3 @@ function mapStateToProps(store) {
 // };
 
 export default connect(mapStateToProps)(Graph);
-
-
-
