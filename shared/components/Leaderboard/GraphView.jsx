@@ -16,12 +16,14 @@ class GraphViewToggle extends React.Component {
 
   render () {
     return (
+      <div id="graphToViewButton">
       <DropdownButton onSelect={this.handleClick} bsStyle="primary" title="Chart To View" id={`dropdown-basic-1`}>
         <MenuItem eventKey="lastWeekCommits">Last Week Commits</MenuItem>
         <MenuItem eventKey="totalCommits">Total Commits</MenuItem>
         <MenuItem eventKey="currentStreak">Current Streak</MenuItem>
         <MenuItem eventKey="longestStreak">Longest Streak</MenuItem>
       </DropdownButton>
+    </div>
     );
   }
 }

@@ -14,6 +14,7 @@ class LeaderboardContainer extends Component {
       showProfile: false,
     };
     this.handleClick = this.handleClick.bind(this);
+    this.showGraphTitle = this.showGraphTitle.bind(this);
   }
 
   handleClick(e) {
@@ -24,6 +25,21 @@ class LeaderboardContainer extends Component {
     e.preventDefault();
   }
 
+  showGraphTitle() {
+    switch(this.props.graph) {
+      case "lastWeekCommits":
+        return "Last Week Commits";
+      case "totalCommits":
+        return "Total Commits";
+      case "currentStreak":
+        return "Current Streak";
+      case "longestStreak":
+        return "Longest Streak";
+      default:
+        return "Last Week Commits";
+    }
+  }
+
   render() {
     return (
       <div className="LeaderboardContainer">
@@ -31,7 +47,7 @@ class LeaderboardContainer extends Component {
           <div className="col-md-8">
             <h2 id="leadHeader"> 1601 had {this.props.weeklyTotals.totalWeekCommits} contributions with {this.props.weeklyTotals.totalWeekPulls} Pull Requests </h2>
             <GraphViewToggle />
-            <h4>{this.props.graph || "Last Week Commits"}</h4>
+            <h4 className="chartTitle">{this.showGraphTitle()}</h4>
             <Graph sort={this.props.graph|| "lastWeekCommits"}/>
           </div>
           <div className="col-md-4">
