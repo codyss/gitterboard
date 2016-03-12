@@ -10,6 +10,7 @@ const store = configureStore(window.__INITIAL_STATE__);
 const history = browserHistory;
 const dest = document.getElementById('root');
 
+
 render((
   <Provider store={store}>
     <Router history={history} routes={routes} />

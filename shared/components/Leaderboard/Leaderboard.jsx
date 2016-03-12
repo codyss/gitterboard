@@ -1,12 +1,11 @@
 import React, { PropTypes } from 'react';
 
-
 function LeaderboardItem(props) {
   return (
     <div className="leaderBoardItem">
       <li>{props.person.gitName}, Commits: {props.person.lastWeekCommits}</li>
     </div>
-  )
+  );
 }
 
 LeaderboardItem.propTypes = {
@@ -17,4 +16,3 @@ LeaderboardItem.propTypes = {
 };
 
 export default LeaderboardItem;
-

@@ -63,6 +63,10 @@ body {
   margin: 0 auto;
 }
 
+.mainChartBox {
+	margin-left: 20px;
+}
+
 .container {
 	max-width: 980px;
 	width: 100%;

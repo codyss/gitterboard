@@ -15,6 +15,7 @@ export function addPost(post) {
   };
 }
 
+
 export function changeSelectedPost(slug) {
   return {
     type: ActionTypes.CHANGE_SELECTED_POST,
@@ -125,15 +126,9 @@ export function addGitStats(obj) {
 }
 
 
-export function showPerson(obj) {
+export function showPerson(gitName) {
   return {
     type: ActionTypes.SHOW_PERSON,
-    person: obj.gitName
+    person: gitName
   }
 }
-
-
-
-
-
-
