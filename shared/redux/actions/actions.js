@@ -128,7 +128,7 @@ export function addGitStats(obj) {
 export function showPerson(obj) {
   return {
     type: ActionTypes.SHOW_PERSON,
-    person: obj.x
+    person: obj.gitName
   }
 }
 

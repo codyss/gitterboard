@@ -9,11 +9,6 @@ function Header(props, context) {
         <h1 className="site-title">
           <Link to="/">1601 GitHub Leaderboard</Link>
         </h1>
-        {
-          context.router.isActive('/', true)
-            ? <a className="add-post-button" href="#" onClick={props.onClick}>Add Post</a>
-            : null
-        }
       </div>
     </div>
   );
@@ -24,3 +19,10 @@ Header.contextTypes = {
 };
 
 export default Header;
+
+
+// {
+//   context.router.isActive('/', true)
+//     ? <a className="add-post-button" href="#" onClick={props.onClick}>Add Post</a>
+//     : null
+//   }

@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import LeaderboardItem from '../../components/Leaderboard/Leaderboard';
-import WeeklyLeaderGraph from '../../components/Leaderboard/Graph'
+import Graph from '../../components/Leaderboard/Graph'
 import ProfileContainer from '../Profile/ProfileContainer';
 import { connect } from 'react-redux';
 import * as Actions from '../../redux/actions/actions';
@@ -9,7 +9,7 @@ import * as Actions from '../../redux/actions/actions';
 class LeaderboardContainer extends Component {
   constructor(props, context) {
     super(props, context);
-  this.state = {
+    this.state = {
       showProfile: false,
     };
     this.handleClick = this.handleClick.bind(this);
@@ -25,14 +25,22 @@ class LeaderboardContainer extends Component {
 
   render() {
     return (
-      <div className="LeaderboardConatiner">
-        <h2 id="leadHeader"> 1601 had {this.props.weeklyTotals.totalWeekCommits} contributions with {this.props.weeklyTotals.totalWeekPulls} Pull Requests </h2>
-         <div className="row">
+      <div className="LeaderboardContainer">
+        <div className="row">
           <div className="col-md-8">
-            <WeeklyLeaderGraph gitStats={this.props.gitStats} />
+            <h2 id="leadHeader"> 1601 had {this.props.weeklyTotals.totalWeekCommits} contributions with {this.props.weeklyTotals.totalWeekPulls} Pull Requests </h2>
+            <Graph sort="lastWeekCommits"/>
           </div>
           <div className="col-md-4">
             <ProfileContainer />
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-md-6">
+            <Graph sort="totalCommits" width="500" />
+          </div>
+          <div className="col-md-6">
+            <Graph sort="currentStreak" width="500"  />
           </div>
         </div>
       </div>

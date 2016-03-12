@@ -42,6 +42,7 @@ body {
 }
 
 .profileView {
+  margin-top: 20px;
   display: inline-block;
   border: 1px solid black;
   width: 300px;
@@ -51,7 +52,7 @@ body {
 
 #profilePic {
   height: auto;
-  width: 300px;
+  width: 298px;
 }
 
 
