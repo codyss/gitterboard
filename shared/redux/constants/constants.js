@@ -6,3 +6,4 @@ export const ADD_SELECTED_POST = 'ADD_SELECTED_POST';
 export const DELETE_POST = 'DELETE_POST';
 export const ADD_STATS = 'ADD_STATS';
 export const SHOW_PERSON = 'SHOW_PERSON';
+export const CHANGE_GRAPH = 'CHANGE_GRAPH';
