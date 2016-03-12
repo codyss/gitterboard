@@ -70,6 +70,14 @@ body {
 	margin: 0 auto;
 }
 
+.chartTitle {
+	text-align: center;
+}
+
+#graphToViewButton {
+	margin-left: 20px;
+}
+
 .form {
 	display: none;
 	background: #FAFAFA;
@@ -194,7 +202,7 @@ body {
 	width: 100%;
 	max-width: 980px;
 	margin: auto;
-	padding: 15px 15px;
+	padding: 5px 10px;
 	overflow: auto;
 }
 

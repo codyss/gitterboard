@@ -15,6 +15,7 @@ class Graph extends Component {
   }
 
   render() {
+    console.log("view", this.props.sort);
     let newArr = this.props.gitStats.slice();
     let gitDataSorted = newArr.sort((a,b) => {
       return parseInt(b[this.props.sort].replace(/[^\d]+/, ""))-parseInt(a[this.props.sort].replace(/[^\d]+/, ""));
@@ -28,7 +29,7 @@ class Graph extends Component {
     });
     return (
        <div className="mainChart">
-          <BarChart height={500} width={parseInt(this.props.width) || 800} barWidth={5} colorBars data={gitData} axes clickHandler={this.handleClick} />
+          <BarChart height={400} width={parseInt(this.props.width) || 800} barWidth={5} colorBars data={gitData} axes clickHandler={this.handleClick} />
        </div>
      );
   }
