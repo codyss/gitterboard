@@ -31,9 +31,6 @@ module.exports = {
           presets: ['react-hmre'],
         },
       },
-    ],
-    noParse: [
-      /plotly\.js/
     ]
   },
 

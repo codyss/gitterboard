@@ -52,7 +52,7 @@ const postReducer = (state = initialState, action) => {
       return Object.assign({}, state, {personToShow: personObj[0]});
 
     case ActionTypes.CHANGE_GRAPH :
-      return Object.assign({}, state, {graph: action.graph});
+      return Object.assign({}, state, {graph: action.graph, personToShow: undefined});
 
     default:
       return state;
