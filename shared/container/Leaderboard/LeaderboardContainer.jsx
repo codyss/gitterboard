@@ -29,6 +29,8 @@ class LeaderboardContainer extends Component {
     switch(this.props.graph) {
       case "lastWeekCommits":
         return "Last Week Commits";
+      case "lastWeekPulls":
+        return "Last Week Pull Requests";
       case "totalCommits":
         return "Total Commits";
       case "currentStreak":
@@ -45,10 +47,15 @@ class LeaderboardContainer extends Component {
       <div className="LeaderboardContainer">
         <div className="row">
           <div className="col-md-8">
-            <h2 id="leadHeader"> 1601 had {this.props.weeklyTotals.totalWeekCommits} contributions with {this.props.weeklyTotals.totalWeekPulls} Pull Requests </h2>
-            <GraphViewToggle />
-            <h4 className="chartTitle">{this.showGraphTitle()}</h4>
-            <Graph sort={this.props.graph|| "lastWeekCommits"}/>
+              <div className="row">
+                <div className="col-md-2">
+                  <GraphViewToggle />
+                </div>
+                <div className="col-md-10">
+                  <h3 className="chartTitle">{this.showGraphTitle()}</h3>
+                </div>
+              </div>
+            <Graph sort={this.props.graph || "lastWeekCommits"}/>
           </div>
           <div className="col-md-4">
             <ProfileContainer />

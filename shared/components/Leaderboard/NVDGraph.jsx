@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
-import {BarChart} from 'react-easy-chart';
+import NVD3Chart from 'react-nvd3';
 import * as Actions from '../../redux/actions/actions';
 
 
@@ -15,19 +15,24 @@ class Graph extends Component {
   }
 
   render() {
-    let gitData = this.props.gitStats.slice().sort((a,b) => {
+    let newArr = this.props.gitStats.slice();
+    let gitDataSorted = newArr.sort((a,b) => {
       return parseInt(b[this.props.sort].replace(/[^\d]+/, ""))-parseInt(a[this.props.sort].replace(/[^\d]+/, ""));
-    })
-    .map(person => {
+    });
+    let gitData = gitDataSorted.map(person => {
       return {
-        x: person.fullName.split(' ').length > 1 ? person.fullName.split(' ')[0] + ' ' + person.fullName.split(' ')[1][0] + '.' : person.gitName,
-        y: parseInt(person[this.props.sort]),
+        label: person.fullName.split(' ').length > 1 ? person.fullName.split(' ')[0] + ' ' + person.fullName.split(' ')[1][0] + '.' : person.gitName,
+        value: parseInt(person[this.props.sort]),
         gitName: person.gitName
       };
     });
+    let gitDatum = {
+      key: "Total Commits",
+      values: gitData
+    };
     return (
        <div className="mainChart">
-          <BarChart height={400} width={parseInt(this.props.width) || 800} barWidth={5} colorBars data={gitData} axes clickHandler={this.handleClick} />
+          <NVD3Chart id="barChart" type="discreteBarChart" datum={gitDatum} x="label" y="value"/>,
        </div>
      );
   }
@@ -42,4 +47,11 @@ function mapStateToProps(store) {
   };
 }
 
-export default connect(mapStateToProps)(Graph);
+
+
+//need to send the personToShow to reducer
+
+// Graph.propTypes = {
+// };
+
+export default connect(mapStateToProps)(NVDGraph);

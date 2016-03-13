@@ -41,18 +41,62 @@ body {
   text-align: center;
 }
 
+text {
+	-ms-transform: rotate(-15deg); /* IE 9 */
+	-webkit-transform: rotate(-15deg); /* Chrome, Safari, Opera */
+	transform: rotate(-15deg);
+}
+
+.tick-circle {
+    color: #ffffff !important;
+}
+
 .profileView {
   margin-top: 20px;
   display: inline-block;
   border: 1px solid black;
-  width: 300px;
+	border-radius: 5px;
+  width: 210px;
   margin-right: auto;
-  margin-right: auto;
+  margin-left: auto;
+}
+
+#profileText {
+	
+}
+
+.profileView h5 {
+	color: #373832;
+	margin: 3px;
+
+}
+
+h5 text {
+	font-size: 85%;
 }
 
 #profilePic {
   height: auto;
-  width: 298px;
+  width: 200px;
+	margin-top: 5px;
+	margin-left: 5px;
+	margin-right: 5px;
+	border-radius: 5px;
+}
+
+.profilePicHolder {
+
+}
+
+#gitNameInProfile {
+	color: #8e8e8e;
+	margin-top: 0px;
+	font-size: 90%;
+}
+
+#nameinProfile {
+	margin-bottom: 0px;
+	margin-top: 10px;
 }
 
 
@@ -75,7 +119,8 @@ body {
 }
 
 #graphToViewButton {
-	margin-left: 20px;
+	margin-left: 50px;
+	margin-top: 15px;
 }
 
 .form {

@@ -8,16 +8,13 @@ class ProfileContainer extends Component {
     super(props, context);
   }
 
-
-
-
   render() {
     if (!this.props.personToShow) {
       return <div></div>;
     }
     return (
       <ProfileView person={this.props.personToShow} />
-    )
+    );
   }
 }
 
