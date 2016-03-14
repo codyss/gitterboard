@@ -109,8 +109,8 @@ export function fetchGitStats() {
     return fetch('/api/gitStats')
       .then(res => res.json())
       .then(res => {
-        let data = res.results.collection1;
-        return {gitStats: data, weeklyTotals: getTotals(data), ranks:data.ranks};
+        let data = res.data;
+        return {gitStats: data, weeklyTotals: getTotals(data), ranks:res.ranks};
       })
       .then(obj => dispatch(addGitStats(obj)));
   };

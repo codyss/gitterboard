@@ -1,7 +1,19 @@
 import React, { PropTypes } from 'react';
 
 function ProfileView(props) {
+  console.log(props);
   let person = props.person;
+  let badgeKey = {
+    totalCommits: "commitTotal",
+    lastWeekCommits: "commit",
+    lastWeekPulls: "pull",
+    currentStreak: "streak",
+    longestStreak: "streakTotal"
+  };
+  let badges = person.badges.map(badgeObj => {
+    return <img src={'/img/' + badgeKey[badgeObj.metric] + badgeObj.place + '.png'} />;
+  });
+  console.log(badges);
   return (
     <div className="profileView">
       <div className="profilePicHolder">
@@ -34,11 +46,11 @@ function ProfileView(props) {
       </div>
       <div id="weekYearSplit"></div>
       <div className="profileRow row">
-        <div className="col-md-4">
+        <div className="col-md-3">
           <h4>BADGES</h4>
         </div>
-        <div className="col-md-8">
-          <img src="/img/CommitFirst.png"></img>
+        <div className="col-md-9">
+          {badges}
         </div>
       </div>
     </div>

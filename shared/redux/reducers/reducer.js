@@ -50,7 +50,12 @@ const postReducer = (state = initialState, action) => {
       let personToShow = state.gitStats.filter(person => {
         if (person.gitName === action.person) return person;
       })[0];
-      
+      personToShow.badges = [];
+      for (let metric in state.ranks) {
+        state.ranks[metric].forEach((person, i, arr) => {
+          if (person === personToShow.gitName) personToShow.badges.push({metric, place:i+1});
+        });
+      }
       return Object.assign({}, state, {personToShow});
 
     case ActionTypes.CHANGE_GRAPH :

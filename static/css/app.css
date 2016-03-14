@@ -290,6 +290,16 @@ h5 text {
 	float: left;
 }
 
+img {
+	margin-top: 4px;
+	margin-bottom: 4px;
+	margin-left: 6px;
+	height: 30px;
+	width: 30px;
+	margin-bottom: 5px;
+	border-radius: 5px;
+}
+
 .site-title a{
 	text-decoration: none;
 	color: #FFF;
