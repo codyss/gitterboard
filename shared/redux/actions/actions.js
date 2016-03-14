@@ -106,11 +106,11 @@ function getTotals(data) {
 
 export function fetchGitStats() {
   return (dispatch) => {
-    return fetch('https://kimonocrawlsapi123.firebaseio.com/kimono/api/6fxd7h0e/latest.json')
+    return fetch('/api/gitStats')
       .then(res => res.json())
       .then(res => {
         let data = res.results.collection1;
-        return {gitStats: data, weeklyTotals: getTotals(data)};
+        return {gitStats: data, weeklyTotals: getTotals(data), ranks:data.ranks};
       })
       .then(obj => dispatch(addGitStats(obj)));
   };
@@ -120,7 +120,8 @@ export function addGitStats(obj) {
   return {
     type: ActionTypes.ADD_STATS,
     gitStats: obj.gitStats,
-    weeklyTotals: obj.weeklyTotals
+    weeklyTotals: obj.weeklyTotals,
+    ranks: obj.ranks
   };
 }
 

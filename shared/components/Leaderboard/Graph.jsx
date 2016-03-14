@@ -38,7 +38,8 @@ function mapStateToProps(store) {
   return {
     gitStats: store.gitStats,
     weeklyTotals: store.weeklyTotals,
-    personToShow: store.personToShow
+    personToShow: store.personToShow,
+    ranks: store.ranks
   };
 }
 

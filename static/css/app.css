@@ -52,35 +52,68 @@ text {
 }
 
 .profileView {
-  margin-top: 20px;
+  margin-top: 30px;
   display: inline-block;
-  border: 1px solid black;
 	border-radius: 5px;
-  width: 210px;
+	background-color: #dad5d5;
+	color: #595858;
+  width: 218px;
   margin-right: auto;
   margin-left: auto;
+	font-family: tahoma;
 }
 
 #profileText {
-	
+	padding-left: 7px;
 }
 
 .profileView h5 {
 	color: #373832;
 	margin: 3px;
-
 }
 
 h5 text {
-	font-size: 85%;
+	font-size: 90%;
+	margin-top: 0px;
+	color: #595858;
+	text-transform: uppercase;
+	font-family: tahoma;
+}
+
+.profileRow h5 {
+	margin-top: 2px;
+	margin-bottom: 1px;
+	color: #302f2f;
+}
+
+.chartTitle {
+	font-family: tahoma;
+}
+
+.profileRow {
+	padding-left: 7px;
+}
+
+.profileRow h4 {
+	font-size: 95%;
+	margin-top: 4px;
+	color: #595858;
+	font-family: tahoma;
+}
+
+#weekYearSplit {
+	height: 1px;
+	background-color: white;
+	margin-left: 5px;
+	margin-right: 5px;
 }
 
 #profilePic {
   height: auto;
-  width: 200px;
-	margin-top: 5px;
-	margin-left: 5px;
-	margin-right: 5px;
+  width: 204px;
+	margin-top: 7px;
+	margin-left: 7px;
+	margin-right: 7px;
 	border-radius: 5px;
 }
 
