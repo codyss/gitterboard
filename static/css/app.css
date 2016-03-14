@@ -36,6 +36,11 @@ body {
 	color: #9E9E9E;
 }
 
+.btn-primary {
+	background-color: #CE1D25 !important;
+	border-color: #CE1D25 !important;
+}
+
 #leadHeader {
   margin-top: 5px;
   text-align: center;
@@ -53,14 +58,23 @@ text {
 
 .profileView {
   margin-top: 30px;
+	margin-left: 30px;
   display: inline-block;
 	border-radius: 5px;
 	background-color: #dad5d5;
 	color: #595858;
   width: 218px;
   margin-right: auto;
-  margin-left: auto;
 	font-family: tahoma;
+}
+
+#closeButton {
+	height: 20px;
+	width: 20px;
+}
+
+#gX {
+	margin: 0px;
 }
 
 #profileText {
@@ -269,8 +283,8 @@ h5 text {
 }
 
 .header {
-	background-color: #eee;
-	background-image: url('/img/header-bk.png');
+	background-color: #CE1D25;
+	/*background-image: url('/img/header-bk.png');*/
 	background-position: center;
 	background-size: cover;
 	border-bottom: 1px solid #ccc;
@@ -318,8 +332,8 @@ img {
 .footer{
 	text-align: center;
 	padding: 10px 0;
-	background-color: #FFF;
-	background-image: url('/img/header-bk.png');
+	background-color: #CE1D25;
+	/*background-image: url('/img/header-bk.png');*/
 	background-position: center;
 	background-size: cover;
 }

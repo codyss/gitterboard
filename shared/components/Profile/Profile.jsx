@@ -1,7 +1,9 @@
 import React, { PropTypes } from 'react';
+import { Button, Glyphicon } from 'react-bootstrap';
+
+
 
 function ProfileView(props) {
-  console.log(props);
   let person = props.person;
   let badgeKey = {
     totalCommits: "commitTotal",
@@ -13,9 +15,10 @@ function ProfileView(props) {
   let badges = person.badges.map(badgeObj => {
     return <img src={'/img/' + badgeKey[badgeObj.metric] + badgeObj.place + '.png'} />;
   });
-  console.log(badges);
   return (
+    <div>
     <div className="profileView">
+      {/*<Button id="closeButton"><Glyphicon id="gX" glyph="remove" /></Button>*/}
       <div className="profilePicHolder">
         <img id="profilePic" src={person.picture.src} />
       </div>
@@ -54,15 +57,8 @@ function ProfileView(props) {
         </div>
       </div>
     </div>
+  </div>
   );
 }
-
-// currentStreak:"10 days"
-// fullName:"Patrick"
-// gitName:"rekad"
-// lastWeekCommits:"69"
-// lastWeekPulls:"13"
-// longestStreak:"10 days"
-// totalCommits:"194 total"
 
 export default ProfileView;

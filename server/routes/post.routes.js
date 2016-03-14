@@ -28,16 +28,15 @@ router.get('/gitStats', function(req, res, next) {
     };
     let result = {};
     for (let metric in ranks) {
-      result[metric] = dataArray.slice().sort((a,b) => {
+      result[metric] = dataArray.sort((a,b) => {
         return parseInt(b[metric].split(" ")[0])-parseInt(a[metric].split(" ")[0]);
       });
       result[metric] = result[metric].slice(0,3).map(person => person.gitName);
     }
-    console.log(result);
     let dataToSend = {};
     dataToSend.data = dataArray;
     dataToSend.ranks = result;
-    res.json(dataToSend);
+    res.send(dataToSend);
   })
   .then(null, next);
 });
