@@ -13,6 +13,7 @@ class PostContainer extends Component {
   }
 
   componentWillMount() {
+    console.log(this.props)
     if(!this.props.gitStats) {
       this.props.dispatch(Actions.fetchGitStatsClient());
     }
