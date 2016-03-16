@@ -106,11 +106,38 @@ function getTotals(data) {
 
 export function fetchGitStats() {
   return (dispatch) => {
-    return fetch('https://kimonocrawlsapi123.firebaseio.com/kimono/api/6fxd7h0e/latest.json')
+    return fetch('/api/gitStats')
       .then(res => res.json())
       .then(res => {
-        let data = res.results.collection1;
-        return {gitStats: data, weeklyTotals: getTotals(data)};
+        console.log(res);
+        let data = res.data;
+        return {gitStats: data, weeklyTotals: getTotals(data), ranks:res.ranks};
+      })
+      .then(obj => dispatch(addGitStats(obj)));
+  };
+}
+
+export function fetchGitStatsClient() {
+  return (dispatch) => {
+    return fetch('https://kimonocrawlsapi123.firebaseio.com/kimono/api/6fxd7h0e/latest.json')
+      .then(res => res.json())
+      .then(data => {
+        let dataArray = data.results.collection1;
+        let ranks = {
+          lastWeekCommits:[],
+          lastWeekPulls:[],
+          currentStreak:[],
+          totalCommits:[],
+          longestStreak:[]
+        };
+        let result = {};
+        for (let metric in ranks) {
+          result[metric] = dataArray.sort((a,b) => {
+            return parseInt(b[metric].split(" ")[0])-parseInt(a[metric].split(" ")[0]);
+          });
+          result[metric] = result[metric].slice(0,3).map(person => person.gitName);
+        }
+        return {gitStats: dataArray, weeklyTotals: getTotals(dataArray), ranks:result};
       })
       .then(obj => dispatch(addGitStats(obj)));
   };
@@ -120,7 +147,8 @@ export function addGitStats(obj) {
   return {
     type: ActionTypes.ADD_STATS,
     gitStats: obj.gitStats,
-    weeklyTotals: obj.weeklyTotals
+    weeklyTotals: obj.weeklyTotals,
+    ranks: obj.ranks
   };
 }
 

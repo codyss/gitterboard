@@ -16,7 +16,7 @@ class GraphViewToggle extends React.Component {
   render () {
     return (
       <div id="graphToViewButton">
-      <DropdownButton onSelect={this.handleClick} bsStyle="primary" title="Chart To View" id={`dropdown-basic-1`}>
+      <DropdownButton onSelect={this.handleClick} bsStyle="primary" title="Chart Metric" id={`dropdown-basic-1`}>
         <MenuItem eventKey="lastWeekCommits">Last Week Commits</MenuItem>
         <MenuItem eventKey="lastWeekPulls">Last Week Pull Requests</MenuItem>
         <MenuItem eventKey="totalCommits">Total Commits</MenuItem>

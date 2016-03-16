@@ -28,17 +28,17 @@ class LeaderboardContainer extends Component {
   showGraphTitle() {
     switch(this.props.graph) {
       case "lastWeekCommits":
-        return "Last Week Commits";
+        return "Contributions in the Last Week";
       case "lastWeekPulls":
-        return "Last Week Pull Requests";
+        return "Pull Requests Merged in Last Week";
       case "totalCommits":
-        return "Total Commits";
+        return "Total Contributions in the Last Year";
       case "currentStreak":
-        return "Current Streak";
+        return "Current Daily Contributions Streak";
       case "longestStreak":
-        return "Longest Streak";
+        return "Longest Daily Contributions Streak";
       default:
-        return "Last Week Commits";
+        return "Contributions in the Last Week";
     }
   }
 

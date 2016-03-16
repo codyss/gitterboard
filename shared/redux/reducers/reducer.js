@@ -42,17 +42,24 @@ const postReducer = (state = initialState, action) => {
     case ActionTypes.ADD_STATS :
       return {
         gitStats: action.gitStats,
-        weeklyTotals: action.weeklyTotals
+        weeklyTotals: action.weeklyTotals,
+        ranks: action.ranks
       };
 
     case ActionTypes.SHOW_PERSON :
-      let personObj = state.gitStats.filter(person => {
+      let personToShow = state.gitStats.filter(person => {
         if (person.gitName === action.person) return person;
-      });
-      return Object.assign({}, state, {personToShow: personObj[0]});
+      })[0];
+      personToShow.badges = [];
+      for (let metric in state.ranks) {
+        state.ranks[metric].forEach((person, i, arr) => {
+          if (person === personToShow.gitName) personToShow.badges.push({metric, place:i+1});
+        });
+      }
+      return Object.assign({}, state, {personToShow});
 
     case ActionTypes.CHANGE_GRAPH :
-      return Object.assign({}, state, {graph: action.graph, personToShow: undefined});
+      return Object.assign({}, state, {graph: action.graph});
 
     default:
       return state;

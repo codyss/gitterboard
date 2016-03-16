@@ -12,9 +12,10 @@ class PostContainer extends Component {
     super(props, context);
   }
 
-  componentDidMount() {
+  componentWillMount() {
+    console.log(this.props)
     if(!this.props.gitStats) {
-      this.props.dispatch(Actions.fetchGitStats());
+      this.props.dispatch(Actions.fetchGitStatsClient());
     }
   }
 
@@ -33,7 +34,7 @@ class PostContainer extends Component {
 // <PostListView posts={this.props.posts}/>
 //weeklyTotals={this.props.weeklyTotals} gitStats={this.props.gitStats}
 
-PostContainer.need = [() => { return Actions.fetchGitStats(); }];
+PostContainer.need = [() => { return Actions.fetchGitStatsClient(); }];
 PostContainer.contextTypes = {
   router: React.PropTypes.object,
 };

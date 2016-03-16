@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
-import ProfileView from '../../components/Profile/Profile.jsx'
+import ProfileView from '../../components/Profile/Profile.jsx';
 
 
 class ProfileContainer extends Component {

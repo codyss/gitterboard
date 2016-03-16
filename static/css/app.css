@@ -36,6 +36,11 @@ body {
 	color: #9E9E9E;
 }
 
+.btn-primary {
+	background-color: #CE1D25 !important;
+	border-color: #CE1D25 !important;
+}
+
 #leadHeader {
   margin-top: 5px;
   text-align: center;
@@ -52,35 +57,77 @@ text {
 }
 
 .profileView {
-  margin-top: 20px;
+  margin-top: 30px;
+	margin-left: 30px;
   display: inline-block;
-  border: 1px solid black;
 	border-radius: 5px;
-  width: 210px;
+	background-color: #dad5d5;
+	color: #595858;
+  width: 218px;
   margin-right: auto;
-  margin-left: auto;
+	font-family: tahoma;
+}
+
+#closeButton {
+	height: 20px;
+	width: 20px;
+}
+
+#gX {
+	margin: 0px;
 }
 
 #profileText {
-	
+	padding-left: 7px;
 }
 
 .profileView h5 {
 	color: #373832;
 	margin: 3px;
-
 }
 
 h5 text {
-	font-size: 85%;
+	font-size: 90%;
+	margin-top: 0px;
+	color: #595858;
+	text-transform: uppercase;
+	font-family: tahoma;
+}
+
+.profileRow h5 {
+	margin-top: 2px;
+	margin-bottom: 1px;
+	color: #302f2f;
+}
+
+.chartTitle {
+	font-family: tahoma;
+}
+
+.profileRow {
+	padding-left: 7px;
+}
+
+.profileRow h4 {
+	font-size: 95%;
+	margin-top: 4px;
+	color: #595858;
+	font-family: tahoma;
+}
+
+#weekYearSplit {
+	height: 1px;
+	background-color: white;
+	margin-left: 5px;
+	margin-right: 5px;
 }
 
 #profilePic {
   height: auto;
-  width: 200px;
-	margin-top: 5px;
-	margin-left: 5px;
-	margin-right: 5px;
+  width: 204px;
+	margin-top: 7px;
+	margin-left: 7px;
+	margin-right: 7px;
 	border-radius: 5px;
 }
 
@@ -236,8 +283,8 @@ h5 text {
 }
 
 .header {
-	background-color: #eee;
-	background-image: url('/img/header-bk.png');
+	background-color: #CE1D25;
+	/*background-image: url('/img/header-bk.png');*/
 	background-position: center;
 	background-size: cover;
 	border-bottom: 1px solid #ccc;
@@ -255,6 +302,16 @@ h5 text {
 	font-weight: 300;
 	font-size: 42px;
 	float: left;
+}
+
+img {
+	margin-top: 4px;
+	margin-bottom: 4px;
+	margin-left: 6px;
+	height: 30px;
+	width: 30px;
+	margin-bottom: 5px;
+	border-radius: 5px;
 }
 
 .site-title a{
@@ -275,8 +332,8 @@ h5 text {
 .footer{
 	text-align: center;
 	padding: 10px 0;
-	background-color: #FFF;
-	background-image: url('/img/header-bk.png');
+	background-color: #CE1D25;
+	/*background-image: url('/img/header-bk.png');*/
 	background-position: center;
 	background-size: cover;
 }

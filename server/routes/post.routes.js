@@ -1,9 +1,6 @@
 import { Router } from 'express';
 import * as PostController from '../controllers/post.controller';
 import axios from 'axios';
-import cheerio from 'cheerio'
-import Xray from 'x-ray';
-const xray = new Xray();
 const router = new Router();
 
 // Get all Posts
@@ -18,28 +15,30 @@ router.route('/addPost').post(PostController.addPost);
 // Delete a Post
 router.route('/deletePost').post(PostController.deletePost);
 
-router.get('/test', function(req, res, next) {
-  xray('https://github.com/codyss', 'span', [{
-    '.contrib-number': ""
-  }])(function(err, result) {
-    res.send(result);
-  });
-});
-
-
-router.get('/git', function(req, res, next) {
-
-  axios('https://github.com/codyss')
-  .then(html => {
-    let $ = cheerio.load(html);
-    let stats;
-    $('.contrib-column-first table-column').filter(() => {
-      let data = $(this);
-      console.log(data);
-      stats = data.children();
-    });
-    res.json(stats);
-  });
+router.get('/gitStats', function(req, res, next) {
+  axios("https://kimonocrawlsapi123.firebaseio.com/kimono/api/6fxd7h0e/latest.json")
+  .then(data => {
+    let dataArray = data.data.results.collection1;
+    let ranks = {
+      lastWeekCommits:[],
+      lastWeekPulls:[],
+      currentStreak:[],
+      totalCommits:[],
+      longestStreak:[]
+    };
+    let result = {};
+    for (let metric in ranks) {
+      result[metric] = dataArray.sort((a,b) => {
+        return parseInt(b[metric].split(" ")[0])-parseInt(a[metric].split(" ")[0]);
+      });
+      result[metric] = result[metric].slice(0,3).map(person => person.gitName);
+    }
+    let dataToSend = {};
+    dataToSend.data = dataArray;
+    dataToSend.ranks = result;
+    res.send(dataToSend);
+  })
+  .then(null, next);
 });
 
 export default router;

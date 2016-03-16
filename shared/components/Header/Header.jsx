@@ -11,9 +11,9 @@ function Header(props, context) {
           {/*<div className="col-md-2">*/}
             {/*<GraphViewToggle />*/}
           {/*</div>*/}
-          <div className="col-md-10">
+          <div className="col-md-12">
             <h1 className="site-title">
-              <Link to="/">1601 GitHub Leaderboard</Link>
+              <Link to="/">1601 Gitterboard</Link>
             </h1>
           </div>
         </div>
